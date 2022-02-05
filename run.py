@@ -51,35 +51,35 @@ def test1():
     _, rdm_ideals = load_data_from_files(n_qubits, n_particles, n_gates_list)
     
     D = np.array(rdm_ideals[0], dtype=float)
-    np.save('rdm_ideal', D)
+    # np.save('rdm_ideal', D)
     # d1 = D[0:2, 3:6, 0:2, 3:6]
     # d2 = D[0:2, 3:6, 3:6, 0:2]
-    d1 = D[0:3, 3:6, 0:3, 3:6] # abab
-    d2 = D[0:3, 3:6, 3:6, 0:3] # abba
-    d3 = D[3:6, 0:3, 0:3, 3:6] # baab
-    d4 = D[3:6, 0:3, 3:6, 0:3] # baba
+    # d1 = D[0:3, 3:6, 0:3, 3:6] # abab
+    # d2 = D[0:3, 3:6, 3:6, 0:3] # abba
+    # d3 = D[3:6, 0:3, 0:3, 3:6] # baab
+    # d4 = D[3:6, 0:3, 3:6, 0:3] # baba
 
     # print("!")
-    print(np.linalg.norm(d1 + d2.transpose([0, 1, 3, 2])))
-    print(np.linalg.norm(d1 + d3.transpose([1, 0, 2, 3])))
-    print(np.linalg.norm(d1 - d4.transpose([1, 0, 3, 2])))
+    # print(np.linalg.norm(d1 + d2.transpose([0, 1, 3, 2])))
+    # print(np.linalg.norm(d1 + d3.transpose([1, 0, 2, 3])))
+    # print(np.linalg.norm(d1 - d4.transpose([1, 0, 3, 2])))
     # pprint(d1)
-    mat = Compressor._tensor2matrix(d1)
-    ltri = np.tril(mat)
-    utri = np.triu(mat)
-    diag = np.diag(np.diag(mat))
-    utri -= diag
-    ltri -= diag
-    print(np.linalg.norm(utri - ltri.T))
+    # mat = Compressor._tensor2matrix(d1)
+    # ltri = np.tril(mat)
+    # utri = np.triu(mat)
+    # diag = np.diag(np.diag(mat))
+    # utri -= diag
+    # ltri -= diag
+    # print(np.linalg.norm(utri - ltri.T))
     
     
-    pprint(d2)
-    N = n_spin_orbitals ** 2 // 4
+    # pprint(d2)
+    # N = n_spin_orbitals ** 2 // 4
     # print(D)
-    mat = Compressor._tensor2matrix(D)
+    # mat = Compressor._tensor2matrix(D)
 
-    pprint(mat[N: 2*N, N: 2*N])
-    pprint(mat[N: 2*N, 2*N: 3*N])
+    # pprint(mat[N: 2*N, N: 2*N])
+    # pprint(mat[N: 2*N, 2*N: 3*N])
     # utri = np.triu(mat)
     # ltri = np.tril(mat)
     # diag = np.diag(np.diag(utri))
@@ -90,7 +90,8 @@ def test1():
 
     # print(np.linalg.norm(utri - ltri.T))
     
-    com = Compressor(n_particles, n_spin_orbitals, D)
+    # com = Compressor(n_particles, n_spin_orbitals, D)
+    com = Compressor(n_particles, n_spin_orbitals)
 
     # check trace of 2D 2Q 2G
     if False:

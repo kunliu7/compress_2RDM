@@ -18,7 +18,7 @@ class Compressor():
         S = self._get_num_elems_of_tri_mat(N)
         n = self.num_spin_orbitals // 2
 
-        mat = self._tensor2matrix(rdm)
+        # mat = self._tensor2matrix(rdm)
 
         utri_arr = np.zeros((3*S,))
         utri_arr[: S] = \
@@ -56,39 +56,39 @@ class Compressor():
         # rdm[N: 2*N, N: 2*N] = A
         # diff = np.linalg.norm(self._tensor2matrix(self.rdm_ideal)[N: 2*N, N: 2*N] - A)
         rdm[:n, n:, :n, n:] = A_tensor
-        diff = np.linalg.norm(self.rdm_ideal[:n, n:, :n, n:] - A_tensor)
-        print('A', diff)
+        # diff = np.linalg.norm(self.rdm_ideal[:n, n:, :n, n:] - A_tensor)
+        # print('A', diff)
 
         # rdm[N: 2*N, 2*N: 3*N] = B
         # diff = np.linalg.norm(self._tensor2matrix(self.rdm_ideal)[N: 2*N, 2*N: 3*N] - B)
         rdm[:n, n:, n:, :n] = B
-        diff = np.linalg.norm(self.rdm_ideal[:n, n:, n:, :n] - B)
-        print('B', diff)
+        # diff = np.linalg.norm(self.rdm_ideal[:n, n:, n:, :n] - B)
+        # print('B', diff)
 
         # rdm[2*N: 3*N, 2*N: 3*N] = C
         # diff = np.linalg.norm(self._tensor2matrix(self.rdm_ideal)[2*N: 3*N, 2*N: 3*N] - C)
         rdm[n:, :n, n:, :n] = C
-        diff = np.linalg.norm(self.rdm_ideal[n:, :n, n:, :n] - C)
-        print('C', diff)
+        # diff = np.linalg.norm(self.rdm_ideal[n:, :n, n:, :n] - C)
+        # print('C', diff)
 
         rdm[n:, :n, :n, n:] = D
-        diff = np.linalg.norm(self.rdm_ideal[n:, :n, :n, n:] - D)
-        print('D', diff)
+        # diff = np.linalg.norm(self.rdm_ideal[n:, :n, :n, n:] - D)
+        # print('D', diff)
 
         # rdm = self._tensor2matrix(rdm)
         # restore upper left
         rdm[:n, :n, :n, :n] = \
             self._matrix2tensor(self._restore_matrix_by_upper_triangle_array(utri_arr[: S], N))
 
-        diff = np.linalg.norm(self.rdm_ideal[:n, :n, :n, :n] - rdm[:n, :n, :n, :n])
-        print('upper left', diff)
+        # diff = np.linalg.norm(self.rdm_ideal[:n, :n, :n, :n] - rdm[:n, :n, :n, :n])
+        # print('upper left', diff)
 
         # restore button right
         rdm[n:, n:, n:, n:] = \
             self._matrix2tensor(self._restore_matrix_by_upper_triangle_array(utri_arr[2*S:], N))
 
-        diff = np.linalg.norm(self.rdm_ideal[n:, n:, n:, n:] - rdm[n:, n:, n:, n:])
-        print('button right', diff)
+        # diff = np.linalg.norm(self.rdm_ideal[n:, n:, n:, n:] - rdm[n:, n:, n:, n:])
+        # print('button right', diff)
         
         # rdm = self._tensor2matrix(rdm)
 
