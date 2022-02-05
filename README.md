@@ -20,14 +20,14 @@ alpha and beta sectors.
 
 E.g.
 Let N = 6.
-![](https://latex.codecogs.com/svg.latex?\Large&space;\langle a_0^\dagger a_1^\dagger a_2 a_3\rangle) must be 0, since 0,1,2 are in alpha sector while 3 is in beta sector, having
+![](https://latex.codecogs.com/svg.latex?\Large&space;\\langle a_0^\\dagger a_1^\\dagger a_2 a_3\\rangle) must be 0, since 0,1,2 are in alpha sector while 3 is in beta sector, having
 different number of indices in these two sectors.
 
 ### Anti-symmetry
 
 For each element of 2-RDM, exchanging two indices will cause a negative sign.
 
-![](https://latex.codecogs.com/svg.latex?\Large&space;\langle a_i^\dagger a_j^\dagger a_k a_l\rangle = - \langle a_j^\dagger a_i^\dagger a_k a_l \rangle)
+![](https://latex.codecogs.com/svg.latex?\Large&space;\\langle a_i^\\dagger a_j^\\dagger a_k a_l\\rangle = - \\langle a_j^\\dagger a_i^\\dagger a_k a_l \\rangle)
 
 ### Compress rate
 
